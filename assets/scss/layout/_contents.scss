@@ -1,0 +1,13 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.l-wrapper {
+  margin: auto;
+  width: min(calc(#{g.$contents-width + 'px'} + (var(--container-space) * 2)), 100%);
+  padding-right: var(--container-space);
+  padding-left: var(--container-space);
+}
+
+.l-contents {
+  padding: 7.5rem 0 10rem;
+}

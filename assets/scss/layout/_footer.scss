@@ -1,0 +1,18 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.l-footer {
+  background-color: rgba(g.$color-primary, 0.1);
+  padding: 1em 0;
+}
+
+.l-copyright {
+  margin: initial;
+  font-size: 1.2rem;
+  line-height: g.$line-height--small;
+  text-align: center;
+
+  small {
+    font-size: 1em;
+  }
+}

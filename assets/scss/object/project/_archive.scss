@@ -1,0 +1,29 @@
+@use '../../foundation/global' as g;
+@use 'sass:math';
+
+.p-archive {
+  &-list {
+    @include g.list-style-reset;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+
+    a {
+      text-decoration: none;
+      color: currentColor;
+    }
+  }
+
+  .c-post-thumbnail {
+    margin-bottom: 1.5rem;
+  }
+
+  .c-post-category {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .c-post-title {
+    font-size: 1.4rem;
+  }
+}

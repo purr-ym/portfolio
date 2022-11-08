@@ -1,0 +1,26 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.u-db-large {
+  @include g.media-query() {
+    display: none;
+  }
+}
+
+.u-db-small {
+  display: none;
+
+  @include g.media-query() {
+    display: block;
+  }
+}
+
+.u-text-indent {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.u-text-gradient {
+  display: inline;
+  background: linear-gradient(transparent 75%, g.$color-accent 0%);
+}

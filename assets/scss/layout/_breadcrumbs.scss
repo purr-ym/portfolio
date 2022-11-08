@@ -1,0 +1,24 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.l-breadcrumbs {
+  background-color: rgba(g.$color-primary, 0.1);
+
+  ul {
+    @include g.list-style-reset;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em 0;
+    font-size: 1.2rem;
+    line-height: g.$line-height--small;
+
+    li {
+      &:not(:first-of-type) {
+        &::before {
+          content: '>';
+          margin: 0 0.5em;
+        }
+      }
+    }
+  }
+}

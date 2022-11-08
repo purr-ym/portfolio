@@ -1,0 +1,43 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.l-pagination {
+  margin-top: 5rem;
+
+  ul {
+    @include g.list-style-reset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    color: g.$color-primary;
+
+    a,
+    .current {
+      display: grid;
+      place-items: center;
+      border: 1px solid;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    a:hover,
+    .current {
+      background-color: g.$color-primary;
+      color: g.$color-white;
+    }
+
+    .dots {
+      // line-height: 40px;
+    }
+  }
+}

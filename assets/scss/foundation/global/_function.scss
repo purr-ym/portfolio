@@ -1,0 +1,11 @@
+@forward 'variable';
+@use 'variable' as v;
+
+@function vw($size, $viewport: v.$artboard-width) {
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+
+@function rate($size, $contents: v.$contents-width) {
+  @return calc($size / $contents * 100%);
+}

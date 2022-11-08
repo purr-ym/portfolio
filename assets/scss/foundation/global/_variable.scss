@@ -1,0 +1,70 @@
+$artboard-width: 1920;
+$contents-width: 960;
+$container-space: 2rem;
+$active: 'is-active';
+
+$breakpoint-md: 768px;
+
+$breakpoints: (
+  'sm': 576px,
+  'md': $breakpoint-md,
+  'lg': 992px,
+) !default;
+
+$header-height: 100px;
+
+$duration--base: 0.2s;
+$opacity--base: 0.7;
+$box-shadow--base: 10px 10px 10px 10px rgba(0, 0, 0, 0.15);
+
+$z-index--base: 99;
+$layer: (
+  'default': 1,
+  'header': $z-index--base,
+  'hamburger-trigger': $z-index--base,
+  'hamburger-contents': calc(#{$z-index--base} - 1),
+  'hamburger-layer': calc(#{$z-index--base} - 2),
+  'pagetop': calc(#{$z-index--base} - 3),
+);
+
+$font-size--base: 1.6rem;
+$font-family--jp: 'Noto Sans JP', sans-serif;
+
+$font-weight: (
+  'Thin': 100,
+  'ExtraLight': 200,
+  'Light': 300,
+  'Regular': 400,
+  'Medium': 500,
+  'SemiBold': 600,
+  'Bold': 700,
+  'ExtraBold': 800,
+  'fwBlack': 900,
+);
+
+$line-height--base: calc(30 / 16);
+$line-height--small: 1.4;
+
+$color-white: #fff;
+$color-black: #333;
+$color-gray: #999;
+$color-red: #f00;
+
+$color-base: $color-white;
+$color-main: #6f6eec;
+$color-accent: yellow;
+
+$color-primary: $color-main;
+$color-secondary: $color-accent;
+
+// Custom properties
+:root {
+  --breakpoint: #{$breakpoint-md};
+  --breakpoint-min: #{$breakpoint-md + 1};
+  --header-height: #{$header-height};
+  --container-space: #{$container-space};
+  --font-family: #{$font-family--jp};
+  --font-size: #{$font-size--base};
+  --line-height: #{$line-height--base};
+  --box-shadow: #{$box-shadow--base};
+}

@@ -1,0 +1,84 @@
+@use 'sass:map';
+@use 'sass:math';
+@forward '../global/variable';
+@use '../global/variable' as v;
+
+@mixin media-query($breakpoint: md, $rule: max) {
+  $breakpoint: map.get(v.$breakpoints, $breakpoint);
+  @if $rule == min {
+    $breakpoint: $breakpoint + 1px;
+  }
+  @media (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin list-style-reset {
+  margin: initial;
+  padding-left: initial;
+  list-style: none;
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: initial;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: initial;
+}
+
+@mixin font-weight($key) {
+  font-weight: map.get(v.$font-weight, $key);
+}
+
+@mixin z-index($key) {
+  z-index: map.get(v.$layer, $key);
+}
+
+@mixin letter-spacing($size) {
+  $ls: math.div($size, 1000);
+  letter-spacing: $ls + em;
+}
+
+@mixin arrow($direction: right, $postion: right, $postion-x: 1.5em, $size: 0.5em, $border-width: 1px) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+
+    @if ($postion == right) {
+      right: $postion-x;
+    } @else if ($postion == left) {
+      left: $postion-x;
+    }
+
+    width: $size;
+    height: $size;
+
+    border: solid v.$color-primary;
+    $borderWidth: $border-width;
+    @if ($direction == top) {
+      border-width: $borderWidth 0 0 $borderWidth;
+    } @else if ($direction == right) {
+      border-width: $borderWidth $borderWidth 0 0;
+    } @else if($direction == bottom) {
+      border-width: 0 $borderWidth $borderWidth 0;
+    } @else if($direction == left) {
+      border-width: 0 0 $borderWidth $borderWidth;
+    }
+
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+}
+
+@mixin img-div($size) {
+  $div: math.div($size, 2);
+  width: floor($div);
+}

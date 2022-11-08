@@ -1,0 +1,32 @@
+@use 'sass:math';
+@use '../foundation/global' as g;
+
+.l-header {
+  &__inner {
+    padding: g.$container-space;
+    line-height: g.$line-height--small;
+    text-align: center;
+  }
+
+  &__bg {
+    aspect-ratio: 10 / 1;
+    background: url(../images/header.jpg) center/cover no-repeat;
+  }
+}
+
+.l-header-site-name {
+  margin: initial;
+  background-color: g.$color-white;
+  font-size: inherit;
+  @include g.font-weight('Bold');
+
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
+}
+
+.l-header-repository {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}

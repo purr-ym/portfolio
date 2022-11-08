@@ -1,0 +1,118 @@
+@use 'sass:math';
+@use 'global' as g;
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+:root {
+  accent-color: g.$color-accent;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  // scroll-behavior: smooth;
+  // https://coliss.com/articles/build-websites/operation/css/fixing-smooth-scrolling-with-page-search.html
+}
+
+body {
+  font-family: g.$font-family--jp;
+  font-size: var(--font-size);
+  @include g.font-weight(Regular);
+  line-height: g.$line-height--base;
+  word-break: break-word;
+  color: g.$color-black;
+  overflow-x: hidden;
+
+  &.is-fixed {
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+  }
+
+  @include g.media-query() {
+    --font-size: 1.6rem;
+    --line-height: 1.875;
+  }
+}
+
+a {
+  transition: g.$duration--base all;
+  color: g.$color-primary;
+
+  &:hover {
+    opacity: g.$opacity--base;
+  }
+
+  @include g.media-query(md, min) {
+    &[href^='tel'] {
+      pointer-events: none;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+figure {
+  margin: 1em 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+table {
+  margin: 1.5em 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid g.$color-black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5em;
+  line-height: g.$line-height--small;
+}
+
+th {
+  background-color: g.$color-gray;
+}
+
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: initial;
+  padding: initial;
+}
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select {
+  color: inherit;
+}
+
+summary {
+  cursor: pointer;
+}
